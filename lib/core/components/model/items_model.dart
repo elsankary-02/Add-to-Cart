@@ -3,7 +3,6 @@ import 'package:add_to_cart/core/components/constant/image_manger.dart';
 class ItemsModel {
   final String image;
   final String titel;
-
   final int price;
 
   ItemsModel({required this.image, required this.titel, required this.price});

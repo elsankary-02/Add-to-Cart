@@ -9,74 +9,71 @@ class ShoppingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-        //! AppBar Shopping Page
-        appBar: AppBar(
-          title: Text(
-            'Shopping Page',
-            style: textTheme.headlineMedium!
-                .copyWith(fontWeight: FontWeight.w400, color: Colors.white),
-          ),
-          centerTitle: true,
-          backgroundColor: ColorManger.kMaterialColor,
+      //! AppBar Shopping Page
+      appBar: AppBar(
+        title: Text(
+          'Shopping Page',
+          style: textTheme.headlineMedium!
+              .copyWith(fontWeight: FontWeight.w400, color: Colors.white),
         ),
-        body: Padding(
-          padding: const EdgeInsetsDirectional.symmetric(horizontal: 8),
-          child: ListView.builder(
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              final variableItems = items[index];
-              return Card(
-                child: Container(
-                  decoration: BoxDecoration(),
-                  height: 100,
-                  child: Center(
-                    child: ListTile(
-                      leading: Image.asset(
-                        variableItems.image,
-                        fit: BoxFit.cover,
-                      ),
-                      //! titel
-                      title: Text(
-                        variableItems.titel,
-                        style: textTheme.titleSmall!
-                            .copyWith(fontWeight: FontWeight.w400),
-                      ),
-                      //! price
-                      subtitle: RichText(
-                        text: TextSpan(
-                            style: textTheme.titleLarge!
-                                .copyWith(color: ColorManger.kGlodenColor),
-                            children: [
-                              //! علامه الدولار
-                              TextSpan(text: r'$ '),
-                              TextSpan(text: variableItems.price.toString()),
-                            ]),
-                      ),
-                      //! add Container
-                      trailing: InkWell(
+        centerTitle: true,
+        backgroundColor: ColorManger.kMaterialColor,
+      ),
+      body: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final kindItems = items[index];
+          return Card(
+            child: Container(
+              decoration: BoxDecoration(),
+              height: 100,
+              child: Center(
+                child: ListTile(
+                  leading: Image.asset(
+                    kindItems.image,
+                    fit: BoxFit.cover,
+                  ),
+                  //! titel
+                  title: Text(
+                    kindItems.titel,
+                    style: textTheme.titleSmall!
+                        .copyWith(fontWeight: FontWeight.w400),
+                  ),
+                  //! price
+                  subtitle: RichText(
+                    text: TextSpan(
+                        style: textTheme.titleLarge!
+                            .copyWith(color: ColorManger.kGlodenColor),
+                        children: [
+                          //! علامه الدولار
+                          TextSpan(text: r'$ '),
+                          TextSpan(text: kindItems.price.toString()),
+                        ]),
+                  ),
+                  //! add Container
+                  trailing: InkWell(
+                    borderRadius: BorderRadius.circular(8),
+                    onTap: () {},
+                    child: Container(
+                      padding: EdgeInsetsDirectional.symmetric(
+                          horizontal: 20, vertical: 10),
+                      decoration: BoxDecoration(
+                        color: ColorManger.kMaterialColor,
                         borderRadius: BorderRadius.circular(8),
-                        onTap: () {},
-                        child: Container(
-                          padding: EdgeInsetsDirectional.symmetric(
-                              horizontal: 20, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: ColorManger.kMaterialColor,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Text(
-                            'Add to Cart',
-                            style: textTheme.labelMedium!.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ),
+                      ),
+                      child: Text(
+                        'Add to Cart',
+                        style: textTheme.labelMedium!.copyWith(
+                            color: Colors.white, fontWeight: FontWeight.w400),
                       ),
                     ),
                   ),
                 ),
-              );
-            },
-          ),
-        ));
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 }
